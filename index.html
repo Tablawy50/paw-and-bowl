@@ -562,7 +562,7 @@ nav.stuck{
 }
 .cta-ci:hover{border-color:rgba(155,110,26,.4);background:rgba(155,110,26,.08);transform:translateX(5px)}
 .ci-ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.c-ph{background:rgba(45,90,50,.35)}.c-ig{background:rgba(180,80,20,.3)}.c-fb{background:rgba(24,100,220,.25)}.c-wa{background:rgba(37,180,80,.25)}
+.c-ph{background:rgba(37,180,80,.2)}.c-ig{background:rgba(180,80,20,.3)}.c-fb{background:rgba(24,100,220,.25)}.c-wa{background:rgba(37,180,80,.25)}
 .ci-l1{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:600}
 .ci-l2{font-size:14px;font-weight:700;color:#FAFAF7;margin-top:1px}
 .form-box{
@@ -641,6 +641,65 @@ footer{
   .beef-comps{grid-template-columns:1fr}.why-big{height:270px}
   footer{padding:42px 20px 24px}
 }
+
+/* ── ORDER FORM STYLES ── */
+.step-label{
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.step-label::before{content:'';width:20px;height:1px;background:var(--gold2)}
+.meal-opts{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.meal-opt{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-radius:12px;cursor:pointer;
+  border:1.5px solid var(--bg3);background:var(--bg);
+  transition:border-color .2s,background .2s;position:relative;
+}
+.meal-opt input[type=radio]{display:none}
+.meal-opt:has(input:checked){border-color:var(--gold2);background:var(--goldbg)}
+.meal-opt:hover{border-color:rgba(155,110,26,.3)}
+.meal-icon{font-size:20px;flex-shrink:0}
+.meal-name{font-size:13px;font-weight:600;color:var(--ink);flex:1}
+.meal-check{
+  width:20px;height:20px;border-radius:50%;
+  border:1.5px solid var(--bg3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:transparent;
+  transition:all .2s;flex-shrink:0;
+}
+.meal-opt:has(input:checked) .meal-check{
+  background:var(--gold2);border-color:var(--gold2);color:#fff;
+}
+.form-nav{display:flex;gap:10px;margin-bottom:12px}
+.btn-back{
+  background:var(--bg2);color:var(--muted);
+  padding:13px 20px;border-radius:10px;
+  font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;
+  border:1.5px solid var(--bg3);cursor:none;transition:all .2s;
+  white-space:nowrap;
+}
+.btn-back:hover{border-color:var(--gold2);color:var(--gold)}
+.form-progress{
+  height:4px;background:var(--bg3);border-radius:2px;
+  overflow:hidden;margin-bottom:10px;
+}
+.fp-bar{
+  height:100%;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transition:width .4s cubic-bezier(.25,.46,.45,.94);
+}
+.ci-arr{
+  margin-left:auto;color:var(--gold2);font-size:16px;
+  transition:transform .2s;flex-shrink:0;
+}
+.cta-ci:hover .ci-arr{transform:translateX(4px)}
+.form-step{animation:stepIn .3s ease both}
+@keyframes stepIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+textarea.f-input{height:80px;resize:none;line-height:1.6;padding-top:12px}
+
+
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 </style>
 </head>
 <body>
@@ -701,7 +760,7 @@ footer{
     </div>
     <div class="hero-btns">
       <a href="#products" class="btn-g">Explore Our Menu</a>
-      <a href="tel:01055889883" class="btn-o">📞 010 5588 9883</a>
+      <a href="https://wa.me/201055889883" class="btn-o">💬 WhatsApp Us</a>
     </div>
     <div class="hero-sts">
       <div class="hsi"><div class="n">70%</div><div class="l">Real Protein</div></div>
@@ -750,7 +809,7 @@ footer{
       <h2 class="sec-h reveal d1">What's in the <i>Bowl</i> Today?</h2>
       <p class="sec-p reveal d2">Every recipe freshly cooked, portioned and flash-frozen to lock in peak nutrition.</p>
     </div>
-    <a href="tel:01055889883" class="btn-g reveal d2">Order Now →</a>
+    <a href="https://wa.me/201055889883" class="btn-g reveal d2">Order Now →</a>
   </div>
   <div class="prod-grid">
     <div class="pcard reveal">
@@ -760,7 +819,7 @@ footer{
         <div class="pname">Classic Chicken Bowl</div>
         <div class="pdesc">70.6% protein (chicken + liver), white rice, peas, carrots & cold-pressed salmon oil. Loved from the very first meal.</div>
         <div class="pchips"><span class="chip">🍗 Chicken + Liver</span><span class="chip">🐟 Omega-3 Oil</span><span class="chip">⚡ 3 Min Ready</span></div>
-        <div class="pfoot"><div class="ptag">Best for: <span>All life stages</span></div><button class="pcta" onclick="window.location.href='tel:01055889883'">Order ↗</button></div>
+        <div class="pfoot"><div class="ptag">Best for: <span>All life stages</span></div><button class="pcta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Order ↗</button></div>
       </div>
     </div>
     <div class="pcard reveal d1">
@@ -770,7 +829,7 @@ footer{
         <div class="pname">Premium Frozen Pack</div>
         <div class="pdesc">Signature frozen pack — 50% protein, 30% carbs, 20% vegetables. Store 6 months. Microwave 3 min & serve.</div>
         <div class="pchips"><span class="chip">❄️ Store Frozen</span><span class="chip">📅 6 Mo Life</span><span class="chip">✅ Vet Approved</span></div>
-        <div class="pfoot"><div class="ptag">Best for: <span>Adult dogs</span></div><button class="pcta" onclick="window.location.href='tel:01055889883'">Order ↗</button></div>
+        <div class="pfoot"><div class="ptag">Best for: <span>Adult dogs</span></div><button class="pcta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Order ↗</button></div>
       </div>
     </div>
     <div class="pcard reveal d2">
@@ -780,7 +839,7 @@ footer{
         <div class="pname">Puppy Growth Formula</div>
         <div class="pdesc">For puppies under 12 months. Extra DHA for brain development, higher protein, calcium-rich vegetables for bones.</div>
         <div class="pchips"><span class="chip">🧠 DHA Boost</span><span class="chip">🦴 Bone Support</span><span class="chip">💪 High Protein</span></div>
-        <div class="pfoot"><div class="ptag">Best for: <span>Under 12 months</span></div><button class="pcta" onclick="window.location.href='tel:01055889883'">Order ↗</button></div>
+        <div class="pfoot"><div class="ptag">Best for: <span>Under 12 months</span></div><button class="pcta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Order ↗</button></div>
       </div>
     </div>
   </div>
@@ -818,8 +877,8 @@ footer{
         <div class="mb-item"><div class="mb-head"><span class="mb-name">🐟 Salmon Oil</span><span class="mb-pct">+</span></div><div class="mb-track"><div class="mb-fill f4" data-w="6"></div></div><div class="mb-sub">Added for healthy fats & Omega-3 support — coat, skin, brain & joint health</div></div>
       </div>
       <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-        <a href="tel:01055889883" class="btn-g">Order Today</a>
-        <a href="tel:01055889883" style="display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--cream);font-weight:600;font-size:14px;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--cream)'"><div style="width:40px;height:40px;border-radius:10px;background:rgba(201,147,74,.1);border:1px solid rgba(201,147,74,.2);display:flex;align-items:center;justify-content:center;font-size:18px">📞</div>010 5588 9883</a>
+        <a href="https://wa.me/201055889883" class="btn-g">Order Today</a>
+        <a href="https://wa.me/201055889883" style="display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--cream);font-weight:600;font-size:14px;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--cream)'"><div style="width:40px;height:40px;border-radius:10px;background:var(--goldbg);border:1px solid var(--goldbd);display:flex;align-items:center;justify-content:center;font-size:18px">💬</div>Chat on WhatsApp</a>
       </div>
     </div>
     <div class="ingr-cards rev-r">
@@ -863,7 +922,7 @@ footer{
   <div class="how-in">
     <div class="how-head"><div class="kicker reveal">Simple Process</div><h2 class="sec-h reveal d1">From Our Kitchen to <i>Your Pet's Bowl</i></h2></div>
     <div class="how-g">
-      <div class="how-step reveal"><div class="how-circ"><div class="how-num">1</div><div class="how-icon">📱</div></div><div class="how-title">Place Your Order</div><div class="how-desc">Call, WhatsApp, or message on Facebook or Instagram. Available 7 days a week.</div></div>
+      <div class="how-step reveal"><div class="how-circ"><div class="how-num">1</div><div class="how-icon">📱</div></div><div class="how-title">Place Your Order</div><div class="how-desc">Message us on WhatsApp, Facebook or Instagram. We're available 7 days a week.</div></div>
       <div class="how-step reveal d1"><div class="how-circ"><div class="how-num">2</div><div class="how-icon">👨‍🍳</div></div><div class="how-title">We Cook Fresh</div><div class="how-desc">Freshly prepared with premium ingredients, cooked same day, then flash-frozen immediately.</div></div>
       <div class="how-step reveal d2"><div class="how-circ"><div class="how-num">3</div><div class="how-icon">🚚</div></div><div class="how-title">Fast Delivery</div><div class="how-desc">Delivered in insulated packaging. Same-day delivery in Cairo & Giza.</div></div>
       <div class="how-step reveal d3"><div class="how-circ"><div class="how-num">4</div><div class="how-icon">🍽️</div></div><div class="how-title">Serve in 3 Minutes</div><div class="how-desc">Microwave 3 minutes from frozen, cool slightly, and serve. Store the rest frozen for months.</div></div>
@@ -917,7 +976,7 @@ footer{
       <h2 class="cta-h">Give Your Pet the <i>Best Meal</i> of Their Life.</h2>
       <p class="cta-p">Our team is available 7 days a week. Reach out on any channel and we'll get your pet's fresh food sorted right away.</p>
       <div class="cta-contacts">
-        <a href="tel:01055889883" class="cta-ci"><div class="ci-ic c-ph">📞</div><div><div class="ci-l1">Call or WhatsApp</div><div class="ci-l2">010 5588 9883</div></div></a>
+        <a href="https://wa.me/201055889883" target="_blank" class="cta-ci"><div class="ci-ic c-wa">💬</div><div><div class="ci-l1">WhatsApp — Reply Within Minutes</div><div class="ci-l2">+20 105 588 9883</div></div><div class="ci-arr">→</div></a>
         <a href="https://instagram.com/paw_bowl83" target="_blank" class="cta-ci"><div class="ci-ic c-ig">📷</div><div><div class="ci-l1">Instagram</div><div class="ci-l2">@paw_bowl83</div></div></a>
         <a href="https://www.facebook.com/profile.php?id=61572968660704" target="_blank" class="cta-ci"><div class="ci-ic c-fb">👍</div><div><div class="ci-l1">Facebook Page</div><div class="ci-l2">PAW & BOWL</div></div></a>
         <a href="https://wa.me/201055889883" target="_blank" class="cta-ci"><div class="ci-ic c-wa">💬</div><div><div class="ci-l1">WhatsApp Direct</div><div class="ci-l2">wa.me/201055889883</div></div></a>
@@ -948,12 +1007,12 @@ footer{
           <a href="https://www.facebook.com/profile.php?id=61572968660704" target="_blank" class="fsoc">f</a>
           <a href="https://instagram.com/paw_bowl83" target="_blank" class="fsoc">📷</a>
           <a href="https://wa.me/201055889883" target="_blank" class="fsoc">💬</a>
-          <a href="tel:01055889883" class="fsoc">📞</a>
+          
         </div>
       </div>
       <div class="f-col"><h5>Products</h5><ul><li><a href="#products">Classic Chicken Bowl</a></li><li><a href="#products">Premium Frozen Pack</a></li><li><a href="#products">Puppy Formula</a></li><li><a href="#beef">Beef & Rice Recipe</a></li></ul></div>
       <div class="f-col"><h5>Company</h5><ul><li><a href="#why">About Us</a></li><li><a href="#formula">Our Formula</a></li><li><a href="#how">How It Works</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
-      <div class="f-col"><h5>Contact</h5><ul><li><a href="tel:01055889883">010 5588 9883</a></li><li><a href="https://instagram.com/paw_bowl83">@paw_bowl83</a></li><li><a href="https://www.facebook.com/profile.php?id=61572968660704">Facebook Page</a></li><li><a href="https://wa.me/201055889883">WhatsApp Us</a></li></ul></div>
+      <div class="f-col"><h5>Contact</h5><ul><li><a href="https://wa.me/201055889883">wa.me/201055889883</a></li><li><a href="https://instagram.com/paw_bowl83">@paw_bowl83</a></li><li><a href="https://www.facebook.com/profile.php?id=61572968660704">Facebook Page</a></li><li><a href="https://wa.me/201055889883">WhatsApp Us</a></li></ul></div>
     </div>
     <div class="f-bot">
       <div class="f-copy">© 2025 <strong>PAW & BOWL</strong>. All rights reserved. Pets Fresh Food — Egypt.</div>
@@ -976,6 +1035,112 @@ document.querySelectorAll('.snum[data-target]').forEach(el=>co.observe(el));
 const bo=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.width=x.target.dataset.w+'%';bo.unobserve(x.target)}})},{threshold:.25});
 document.querySelectorAll('.mb-fill[data-w],.bcbf[data-w]').forEach(el=>bo.observe(el));
 window.addEventListener('scroll',()=>{let c='';document.querySelectorAll('section[id]').forEach(s=>{if(scrollY>=s.offsetTop-120)c=s.id});document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--gold)':''})},{passive:true});
+
+/* ── ORDER FORM LOGIC ── */
+let currentStep = 1;
+const totalSteps = 3;
+
+function formStep(dir) {
+  const steps = ['step1','step2','step3'];
+
+  // Validate before going forward
+  if (dir === 1) {
+    if (currentStep === 1) {
+      const name = document.getElementById('ord-name').value.trim();
+      const area = document.getElementById('ord-area').value.trim();
+      if (!name || !area) {
+        shakefield(!name ? 'ord-name' : 'ord-area');
+        return;
+      }
+    }
+    if (currentStep === 2) {
+      const meal = document.querySelector('input[name="meal"]:checked');
+      const qty  = document.getElementById('ord-qty').value;
+      if (!meal || !qty) {
+        if (!meal) { document.querySelector('.meal-opts').style.animation='none'; requestAnimationFrame(()=>{document.querySelector('.meal-opts').style.animation='shake .3s ease'}); }
+        if (!qty) shakefield('ord-qty');
+        return;
+      }
+    }
+    if (currentStep === 3) {
+      sendToWhatsApp();
+      return;
+    }
+  }
+
+  document.getElementById(steps[currentStep - 1]).style.display = 'none';
+  currentStep += dir;
+  if (currentStep < 1) currentStep = 1;
+  document.getElementById(steps[currentStep - 1]).style.display = 'block';
+
+  // Update UI
+  const pct = (currentStep / totalSteps) * 100;
+  document.getElementById('fpBar').style.width = pct + '%';
+  document.getElementById('btnBack').style.display = currentStep > 1 ? 'block' : 'none';
+
+  const btn = document.getElementById('btnNext');
+  if (currentStep === 3) {
+    btn.textContent = '✅ Send Order via WhatsApp';
+    btn.style.background = 'linear-gradient(135deg,#1A5C22,#2D8A38)';
+  } else {
+    btn.textContent = 'Next Step →';
+    btn.style.background = '';
+  }
+}
+
+function shakefield(id) {
+  const el = document.getElementById(id);
+  el.style.borderColor = '#E05050';
+  el.style.animation = 'shake .35s ease';
+  setTimeout(() => { el.style.borderColor = ''; el.style.animation = ''; }, 800);
+}
+
+function sendToWhatsApp() {
+  const name   = document.getElementById('ord-name').value.trim();
+  const area   = document.getElementById('ord-area').value.trim();
+  const meal   = document.querySelector('input[name="meal"]:checked');
+  const mealOpt = meal ? meal.closest('label').dataset.val : '';
+  const qty    = document.getElementById('ord-qty').value;
+  const pet    = document.getElementById('ord-pet').value.trim();
+  const age    = document.getElementById('ord-age').value;
+  const notes  = document.getElementById('ord-notes').value.trim();
+
+  const msg =
+    `🐾 *New Order — PAW & BOWL*
+
+` +
+    `👤 *Name:* ${name}
+` +
+    `📍 *Area:* ${area}
+
+` +
+    `🍽️ *Meal:* ${mealOpt}
+` +
+    `📦 *Quantity:* ${qty}
+
+` +
+    (pet ? `🐶 *Pet:* ${pet}
+` : '') +
+    (age ? `🎂 *Age Group:* ${age}
+` : '') +
+    (notes ? `
+📝 *Notes:* ${notes}
+` : '') +
+    `
+_Sent from PAW & BOWL website_`;
+
+  const url = 'https://wa.me/201055889883?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+
+  // Success state
+  const btn = document.getElementById('btnNext');
+  btn.textContent = '🎉 Opening WhatsApp...';
+  btn.style.background = 'linear-gradient(135deg,#1A5C22,#2D8A38)';
+  setTimeout(() => {
+    btn.textContent = '✅ Send Order via WhatsApp';
+  }, 2000);
+}
+
 </script>
 </body>
 </html>
